@@ -37,14 +37,14 @@ rabbit_t *rabbit_t::give_birth ( void ) const
     rabbit_t* rc = nullptr;
     if( is_adult() && m_SEX == FEMALE )
     {
-        rc = new rabbit_t( utilities_t::get_random_name(), get_random_sex(), m_COLOUR, 0 );
+        rc = new rabbit_t( utilities_t::get()->get_random_name(), get_random_sex(), m_COLOUR, 0 );
     }
     return  rc;
 }
 
 rabbit_t *rabbit_t::get_random_rabbit ( void )
 {
-    return new rabbit_t( utilities_t::get_random_name(), get_random_sex(), get_random_colour(), 0 );
+    return new rabbit_t( utilities_t::get()->get_random_name(), get_random_sex(), get_random_colour(), 0 );
 }
 
 const rabbit_t::sex_t rabbit_t::get_sex ( void ) const

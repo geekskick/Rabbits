@@ -44,10 +44,10 @@ void colony_t::print_info ( void )
 {
     int i = 0;
 
-    utilities_t::print_header();
+    utilities_t::get()->print_header();
     for( ; i < m_population.size(); i++ )
     {
-        utilities_t::print_row( i + 1, m_population[i]->get_name(), m_population[i]->get_age(), m_population[i]->get_colour(),
+        utilities_t::get()->print_row( i + 1, m_population[i]->get_name(), m_population[i]->get_age(), m_population[i]->get_colour(),
                             m_population[i]->get_sex_string() );
     }
 
@@ -58,7 +58,7 @@ void colony_t::grow ( void )
     pop_t new_wabbits;
     rabbit_t *p_rabbit = nullptr;
     bool make_babies = contains_male();
-    int max = m_population.size();
+    unsigned long max = m_population.size();
     int i;
 
     for( i = 0; i < max; i++ )
@@ -70,12 +70,14 @@ void colony_t::grow ( void )
         {
 
             kill_wabbit( p_rabbit );
+            std::cout << p_rabbit->get_name() << " died" << std::endl;
             max--;
 
         }
         if( make_babies && ( p_rabbit->get_sex() == rabbit_t::FEMALE ) && ( p_rabbit->is_adult() ) )
         {
             new_wabbits.push_back( p_rabbit->give_birth() );
+            std::cout << p_rabbit->get_name() << " gave birth to " << new_wabbits.back()->get_name() << std::endl;
         }
 
     }
@@ -113,11 +115,10 @@ bool colony_t::contains_male ( void ) const
 
 void colony_t::cull ( void )
 {
-    int number_of_victims = m_population.size() / 2;
-    int to_delete;
+    unsigned long number_of_victims = m_population.size() / 2;
     for( int i = 0 ; i < number_of_victims; i++ )
     {
-        kill_wabbit( m_population[ utilities_t::get_random_number_in_range(m_population.size() ) ] );
+        kill_wabbit( m_population[ utilities_t::get()->get_random_number_in_range( m_population.size() ) ] );
     }
 
 }

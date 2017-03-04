@@ -6,15 +6,9 @@
 #include <iostream>
 #include <iomanip>
 
+utilities_t* utilities_t::m_INSTANCE = nullptr;
 
-const int utilities_t::m_AGE_W = 5;
-const int utilities_t::m_NAME_W = 10;
-const int utilities_t::m_SEX_W = 5;
-const int utilities_t::m_COL_W = 8;
-const int utilities_t::m_NUM_W = 5;
-
-
-int utilities_t::get_random_number_in_range ( const int max )
+unsigned long utilities_t::get_random_number_in_range ( const unsigned long max )
 {
     return ( rand() % ( max ) );
 }
@@ -62,11 +56,29 @@ void utilities_t::print_row ( const int num, const std::string &name, const int 
 
 }
 
-const std::vector<std::string> utilities_t::m_RABBIT_NAMES = { "Richard", "Leah", "Matt", "Tim",
-                                                           "Phil", "Henry", "Nathan", "Joe", "James" , "DJ Khaled" };
-
 const std::string &utilities_t::get_random_name ( void )
 {
     return m_RABBIT_NAMES[( rand() % m_RABBIT_NAMES.size() )];
+}
+
+utilities_t::utilities_t ()
+: m_RABBIT_NAMES( { "Richard", "Leah", "Matt", "Tim",
+                    "Phil", "Henry", "Nathan", "Joe", "James" , "DJ Khaled" } ),
+  m_NUM_W( 5 ),
+  m_SEX_W( 8 ),
+  m_COL_W( 8 ),
+  m_NAME_W( 12 ),
+  m_AGE_W( 5 )
+{
+
+}
+
+utilities_t *utilities_t::get ( void )
+{
+    if( nullptr == m_INSTANCE )
+    {
+        m_INSTANCE = new utilities_t();
+    }
+    return m_INSTANCE;
 }
 
