@@ -27,7 +27,7 @@ public:
     static colour_t get_random_colour( void );
 
     int get_age( void ) const;
-    const sex_t get_sex( void ) const;
+    sex_t get_sex( void ) const;
     const std::string& get_sex_string ( void ) const;
     const std::string& get_colour( void ) const;
     const std::string& get_name( void ) const;

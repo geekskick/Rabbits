@@ -62,13 +62,13 @@ const std::string &utilities_t::get_random_name ( void )
 }
 
 utilities_t::utilities_t ()
-: m_RABBIT_NAMES( { "Richard", "Leah", "Matt", "Tim",
-                    "Phil", "Henry", "Nathan", "Joe", "James" , "DJ Khaled" } ),
-  m_NUM_W( 5 ),
-  m_SEX_W( 8 ),
-  m_COL_W( 8 ),
+: m_NUM_W( 5 ),
   m_NAME_W( 12 ),
-  m_AGE_W( 5 )
+  m_AGE_W( 5 ),
+  m_COL_W( 8 ),
+  m_SEX_W( 8 ),
+  m_RABBIT_NAMES( { "Richard", "Leah", "Matt", "Tim",
+                      "Phil", "Henry", "Nathan", "Joe", "James" , "DJ Khaled" } )
 {
 
 }

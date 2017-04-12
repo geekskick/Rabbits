@@ -6,7 +6,6 @@
 #include "Colony/colony_t.h"
 #include "Colony/utilities.h"
 
-
 int main ()
 {
 

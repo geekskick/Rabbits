@@ -47,7 +47,7 @@ rabbit_t *rabbit_t::get_random_rabbit ( void )
     return new rabbit_t( utilities_t::get()->get_random_name(), get_random_sex(), get_random_colour(), 0 );
 }
 
-const rabbit_t::sex_t rabbit_t::get_sex ( void ) const
+rabbit_t::sex_t rabbit_t::get_sex( void ) const
 {
     return m_SEX;
 }
