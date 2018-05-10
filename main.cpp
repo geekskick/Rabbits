@@ -12,7 +12,7 @@ int main ()
     {
         std::cout << "Hello, World Task 1" << std::endl;
 
-        dll_t linked_list;
+        dll_t<rabbit_t> linked_list;
 
         // populate dll
         for ( int i = 20; i > 0; i-- )
